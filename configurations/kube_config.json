@@ -1,0 +1,15 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "KubePath": "kubeconfig.yml",
+  "KafkaConsumerConfig": {
+    "GroupId": "kubernetesService",
+    "BootstrapServers": "kafka:29092",
+    "AutoOffsetReset": 1
+  }
+}
+

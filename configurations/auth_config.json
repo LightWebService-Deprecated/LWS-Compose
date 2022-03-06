@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "MongoSection": {
+    "ConnectionString": "mongodb://root:testPassword@localhost:27017",
+    "DatabaseName": "compose-runner",
+    "AccountCollectionName": "Accounts",
+    "AccessTokenCollectionName": "AccessTokens"
+  },
+  "KafkaProducerConfig": {
+    "BootstrapServers": "kafka:29092",
+    "ClientId": "ComposeDevelopmentAuthProducerClient"
+  }
+}
+

@@ -1,0 +1,8 @@
+[submodule "LWS-Auth"]
+	path = LWS-Auth
+    url = https://github.com/LightWebService/LWS-Auth
+    branch = develop
+[submodule "LWS-Kubernetes"]
+	path = LWS-Kubernetes
+    url = https://github.com/LightWebService/LWS-Kubernetes
+    branch = develop
