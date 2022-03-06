@@ -66,6 +66,7 @@ services:
   lwskube:
     depends_on:
       - workaround
+      - kubernetes
     build:
       context: ./LWS-Kubernetes
       dockerfile: ./LWSKubernetesService/Dockerfile
