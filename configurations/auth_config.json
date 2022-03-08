@@ -6,7 +6,7 @@
     }
   },
   "MongoSection": {
-    "ConnectionString": "mongodb://root:testPassword@localhost:27017",
+    "ConnectionString": "mongodb://root:testPassword@mongodb:27017",
     "DatabaseName": "compose-runner",
     "AccountCollectionName": "Accounts",
     "AccessTokenCollectionName": "AccessTokens"
@@ -16,4 +16,3 @@
     "ClientId": "ComposeDevelopmentAuthProducerClient"
   }
 }
-
