@@ -6,3 +6,6 @@
 	path = LWS-Kubernetes
     url = https://github.com/LightWebService/LWS-Kubernetes
     branch = develop
+[submodule "LWS-OpenAPI"]
+	path = LWS-OpenAPI
+	url = https://github.com/LightWebService/LWS-OpenAPI
