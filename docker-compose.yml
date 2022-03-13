@@ -34,7 +34,10 @@ services:
     image: confluentinc/cp-kafka:latest
     depends_on:
       - kafka
-    command: "bash -c 'cub kafka-ready -b kafka:29092 1 20 && kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic account.created'"
+    command: "bash -c 'cub kafka-ready -b kafka:29092 1 20 && \ 
+                       kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic account.created && \
+                       kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic account.deleted && \
+                       sleep 10'"
     environment:
       KAFKA_BROKER_ID: ignored
       KAFKA_ZOOKEEPER_CONNECT: ignored
@@ -74,8 +77,10 @@ services:
 
   lwskube:
     depends_on:
-      - workaround
-      - kubernetes
+      workaround:
+        condition: service_completed_successfully
+      kubernetes:
+        condition: service_started
     build:
       context: ./LWS-Kubernetes
       dockerfile: ./LWSKubernetesService/Dockerfile
