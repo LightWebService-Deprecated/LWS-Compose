@@ -9,3 +9,7 @@
 [submodule "LWS-OpenAPI"]
 	path = LWS-OpenAPI
 	url = https://github.com/LightWebService/LWS-OpenAPI
+[submodule "LWS-Ubuntu"]
+	path = LWS-Ubuntu
+    url = https://github.com/LightWebService/LWS-Ubuntu
+    branch = develop

@@ -91,6 +91,19 @@ services:
       - ./configurations/kube_config.json:/app/publish/appsettings.Development.json
       - ./configurations/kube_config.json:/app/publish/appsettings.json
       - ./configurations/kubeconfig.yml:/root/.kube/config
+  
+  lwsubuntu:
+    build: 
+      context: ./LWS-Ubuntu/.
+      dockerfile: ./LWSSandboxService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+
+    volumes:
+      - ./configurations/kubeconfig.yml:/app/publish/kubeconfig.yml
+      - ./configurations/sandbox_config.json:/app/publish/appsettings.Development.json
+      - ./configurations/sandbox_config.json:/app/publish/appsettings.json
+      - ./configurations/kubeconfig.yml:/root/.kube/config
 
   lwsgateway:
     depends_on:
