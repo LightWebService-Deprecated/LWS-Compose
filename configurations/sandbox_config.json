@@ -8,5 +8,14 @@
     "ConnectionStrings": {
         "LWSGatewayHost": "http://lwsgateway"
     },
-    "KubePath": "kubeconfig.yml"
+    "KubePath": "kubeconfig.yml",
+    "MongoSection": {
+        "ConnectionString": "mongodb://root:testPassword@mongodb:27017",
+        "DatabaseName": "compose-runner",
+        "DeploymentContainerName": "Deployments"
+    },
+    "KafkaProducerConfig": {
+        "BootstrapServers": "kafka:29092",
+        "ClientId": "ComposeDevelopmentSandboxId"
+    }
 }
