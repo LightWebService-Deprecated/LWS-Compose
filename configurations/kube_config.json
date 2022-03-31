@@ -6,14 +6,15 @@
     }
   },
   "KubePath": "kubeconfig.yml",
-  "KafkaConsumerConfig": {
-    "GroupId": "kubernetesService",
-    "BootstrapServers": "kafka:29092",
-    "AutoOffsetReset": 1
-  },
   "MongoSection": {
     "ConnectionString": "mongodb://root:testPassword@mongodb:27017",
     "DatabaseName": "compose-runner",
     "DeploymentContainerName": "Deployments"
+  },
+  "RabbitMqSection": {
+    "Host": "rabbitmq",
+    "VirtualHost": "/",
+    "UserName": "guest",
+    "Password": "guest"
   }
 }

@@ -1,21 +1,12 @@
 {
-    "Logging": {
-        "LogLevel": {
-            "Default": "Information",
-            "Microsoft.AspNetCore": "Warning"
-        }
-    },
-    "ConnectionStrings": {
-        "LWSGatewayHost": "http://lwsgateway"
-    },
-    "KubePath": "kubeconfig.yml",
-    "MongoSection": {
-        "ConnectionString": "mongodb://root:testPassword@mongodb:27017",
-        "DatabaseName": "compose-runner",
-        "DeploymentContainerName": "Deployments"
-    },
-    "KafkaProducerConfig": {
-        "BootstrapServers": "kafka:29092",
-        "ClientId": "ComposeDevelopmentSandboxId"
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
     }
+  },
+  "ConnectionStrings": {
+    "LWSGatewayHost": "http://lwsgateway"
+  },
+  "KubePath": "kubeconfig.yml"
 }

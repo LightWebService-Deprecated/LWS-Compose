@@ -11,8 +11,10 @@
     "AccountCollectionName": "Accounts",
     "AccessTokenCollectionName": "AccessTokens"
   },
-  "KafkaProducerConfig": {
-    "BootstrapServers": "kafka:29092",
-    "ClientId": "ComposeDevelopmentAuthProducerClient"
+  "RabbitMqSection": {
+    "Host": "rabbitmq",
+    "VirtualHost": "/",
+    "UserName": "guest",
+    "Password": "guest"
   }
 }

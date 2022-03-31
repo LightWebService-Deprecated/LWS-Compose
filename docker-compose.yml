@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   swagger:
     image: swaggerapi/swagger-ui:latest
@@ -7,41 +7,13 @@ services:
       BASE_URL: /swagger
     volumes:
       - ./LWS-OpenAPI/swagger.yml:/swagger.yml
-  
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - 2181
 
-  kafka:
-    image: confluentinc/cp-kafka:latest
-    depends_on:
-      - zookeeper
+  rabbitmq:
+    image: masstransit/rabbitmq
+    container_name: "rabbitmq_runner"
     ports:
-      - 9092
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-  workaround:
-    image: confluentinc/cp-kafka:latest
-    depends_on:
-      - kafka
-    command: "bash -c 'cub kafka-ready -b kafka:29092 1 20 && \ 
-                       kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic account.created && \
-                       kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic account.deleted && \
-                       kafka-topics --create --bootstrap-server kafka:29092 --replication-factor 1 --partitions 1 --topic deployment.created && \
-                       sleep 10'"
-    environment:
-      KAFKA_BROKER_ID: ignored
-      KAFKA_ZOOKEEPER_CONNECT: ignored
+      - "15672:15672"
+      - "5672"
 
   mongodb:
     image: mongo:latest
@@ -78,8 +50,6 @@ services:
 
   lwskube:
     depends_on:
-      workaround:
-        condition: service_completed_successfully
       kubernetes:
         condition: service_started
     build:
@@ -92,9 +62,9 @@ services:
       - ./configurations/kube_config.json:/app/publish/appsettings.Development.json
       - ./configurations/kube_config.json:/app/publish/appsettings.json
       - ./configurations/kubeconfig.yml:/root/.kube/config
-  
+
   lwsubuntu:
-    build: 
+    build:
       context: ./LWS-Ubuntu/.
       dockerfile: ./LWSSandboxService/Dockerfile
     environment:
