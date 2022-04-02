@@ -1,15 +1,15 @@
 [submodule "LWS-Auth"]
 	path = LWS-Auth
-    url = https://github.com/LightWebService/LWS-Auth
+    url = git@github.com:LightWebService/LWS-Auth.git
     branch = develop
 [submodule "LWS-Kubernetes"]
 	path = LWS-Kubernetes
-    url = https://github.com/LightWebService/LWS-Kubernetes
+    url = git@github.com:LightWebService/LWS-Kubernetes
     branch = develop
 [submodule "LWS-OpenAPI"]
 	path = LWS-OpenAPI
-	url = https://github.com/LightWebService/LWS-OpenAPI
+	url = git@github.com:LightWebService/LWS-OpenAPI
 [submodule "LWS-Ubuntu"]
 	path = LWS-Ubuntu
-    url = https://github.com/LightWebService/LWS-Ubuntu
+    url = git@github.com:LightWebService/LWS-Ubuntu
     branch = develop
